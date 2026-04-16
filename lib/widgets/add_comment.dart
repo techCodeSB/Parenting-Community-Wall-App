@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class AddComment extends StatefulWidget {
-  const AddComment({super.key});
+  final String postId;
+  const AddComment({super.key, required this.postId});
 
   @override
   State<AddComment> createState() => _AddCommentState();
@@ -45,7 +46,7 @@ class _AddCommentState extends State<AddComment> {
               const SizedBox(width: 10.0),
               Expanded(
                 child: TextField(
-                  controller: provider.newPost,
+                  controller: provider.newComment,
                   maxLines: 3,
                   decoration: InputDecoration(
                     filled: true,
@@ -68,7 +69,7 @@ class _AddCommentState extends State<AddComment> {
             alignment: AlignmentGeometry.topEnd,
             child: MaterialButton(
               onPressed: () {
-                provider.addPost(context);
+                provider.addComment(widget.postId, context);
               },
               height: 40.0,
               color: Color(0XFF3F5580),

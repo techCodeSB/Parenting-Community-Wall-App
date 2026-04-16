@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CommentsCard extends StatefulWidget {
-  const CommentsCard({super.key});
+  final String author;
+  final String text;
+  const CommentsCard({super.key, required this.author, required this.text});
 
   @override
   State<CommentsCard> createState() => _CommentsCardState();
@@ -33,11 +35,11 @@ class _CommentsCardState extends State<CommentsCard> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Sourav Bishai",
+                  widget.author,
                   style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  "Creativity is the natural extension of our enthusiasm.\" — A little reminder for everyone starting their weekend projects!",
+                  widget.text,
                   overflow: TextOverflow.clip,
                   style: TextStyle(fontSize: 13.0),
                 ),

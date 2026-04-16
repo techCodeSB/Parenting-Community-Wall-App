@@ -1,6 +1,6 @@
 import 'package:app/controllers/post_controller.dart';
 import 'package:app/controllers/signin_controller.dart';
-import 'package:app/screens/signin.dart';
+import 'package:app/screens/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Parenting Community Wall",
-      home: Signin(),
+      home: Splash(),
     );
   }
 }

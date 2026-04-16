@@ -1,12 +1,16 @@
 import 'package:app/screens/feed.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uuid/uuid.dart';
 
 class SigninController extends ChangeNotifier {
   TextEditingController authorName = TextEditingController();
+  var uuid = Uuid();
 
   void signin(BuildContext context) async {
     final name = authorName.text.trim();
+    var id = uuid.v1();
+
 
     if (name.isEmpty) {
       if (!context.mounted) return;
@@ -24,6 +28,7 @@ class SigninController extends ChangeNotifier {
 
     final SharedPreferences pref = await SharedPreferences.getInstance();
     pref.setString("author", name);
+    pref.setString("id", id);
 
     if (!context.mounted) return;
     Navigator.pushReplacement(
